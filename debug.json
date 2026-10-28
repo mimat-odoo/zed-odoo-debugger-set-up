@@ -1,0 +1,59 @@
+[
+	{
+		"label": "Python Debugger: Current File with Arguments",
+		"adapter": "Debugpy",
+		"request": "launch",
+		"program": "$ZED_FILE",
+		"args": [
+			// "--file enterprise/account_reports/data/balance_sheet.xml"
+		],
+	},
+	{
+		"label": "Launch Odoo",
+		"adapter": "Debugpy",
+		"request": "launch",
+		"python": "/home/odoo/Odoo/.venv/bin/python3.12", // absolut path to python3.12 in virtual env to use
+		"program": "$ZED_WORKTREE_ROOT/odoo/odoo-bin",
+		"cwd": "$ZED_WORKTREE_ROOT",
+		"args": [
+			// "shell",
+			"--limit-time-cpu=0",
+			"--limit-time-real=0",
+			"--limit-request=0",
+			"--without-demo=False",
+			"--dev=all",
+			// "-i account,accountant,account_reports",
+			// "-i account_reports, account_accountant, l10n_fr_reports, l10n_be_reports, l10n_lu_reports, l10n_be_intervat_return_status, account_reports, l10n_nl_reports",
+			// BASE
+			"--addons-path=odoo/addons/,enterprise/,tutorials/", //paths to addons to take in counts
+			"--http-port=8069",
+			//"--database=DBNAME", // replace DBNAME with db name
+			// INIT
+			// "--init=timesheet_grid",
+			// "--stop-after-init",
+			// "--without-demo=all",
+			// UPDATE & LOGS
+			// "--update=timesheet_grif",
+			// "--stop-after-init",
+			// "--log-level=debug_sql",
+			// TESTS
+			// "--test-enable",
+			// "--test-tags=:TestSEPAFile,TestISO20022CommonCreditTransfer",
+			// "--test-tags=.test_portal_user_codice_fiscale",
+			// "--stop-after-init",
+			// MAIL
+			// "--smtp-port=1025",
+			// "--smtp=localhost",
+			// "--smtp-user=False",
+			// "--smtp-password=False",
+			// LIMITS
+			// "--limit-time-cpu=0",
+			// "--limit-time-real=0",
+			// "--limit-request=0",
+			// UPGRADE
+			// "--upgrade-path=upgrade-util/src,upgrade/migrations",
+			// "-u all",
+			// "--stop-after-init"
+		],
+	},
+]
